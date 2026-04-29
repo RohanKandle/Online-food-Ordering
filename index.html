@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Foodie Hub</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- 🔥 Background Animation -->
+<div class="bg-animation">
+    <span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<!-- HEADER -->
+<header>
+    <h1>🍔 Foodie Hub</h1>
+
+    <input type="text" id="search" placeholder="Search food..." onkeyup="searchFood()">
+
+    <div>
+        🛒 <span id="cartCount">0</span>
+        <button onclick="toggleTheme()">🌙</button>
+    </div>
+</header>
+
+<!-- 🔐 AUTH SECTION -->
+<div class="auth">
+    <button onclick="openAuth()">Login / Signup</button>
+    <span id="userName"></span>
+</div>
+
+<div class="container">
+
+<!-- 🍽 MENU -->
+<section>
+    <h2>Popular Dishes</h2>
+    <div class="grid" id="menuItems"></div>
+</section>
+
+<!-- 🛒 CART -->
+<section>
+    <h2>Your Cart 🛒</h2>
+    <div id="cartItems" class="cart-container"></div>
+
+    <div class="cart-summary">
+        <p>Total Items: <span id="totalItems">0</span></p>
+        <h3>Total: ₹<span id="total">0</span></h3>
+
+        <button onclick="showPayment()">Proceed to Pay</button>
+        <button onclick="clearCart()">Clear Cart</button>
+    </div>
+</section>
+
+<!-- 📦 CHECKOUT -->
+<section>
+    <h2>Checkout Details</h2>
+    <div class="checkout-box">
+        <input type="text" id="name" placeholder="Full Name">
+        <input type="text" id="address" placeholder="Delivery Address">
+        <input type="text" id="phone" placeholder="Mobile Number">
+    </div>
+</section>
+
+<!-- 📜 HISTORY -->
+<section>
+    <h2>📦 Order History</h2>
+    <div id="historyList" class="history-container"></div>
+</section>
+
+<!-- 👨‍💻 OWNER -->
+<section>
+    <h2>👨‍💻 Owner Information</h2>
+    <div class="owner-box">
+        <h3>Rohan Kandle</h3>
+        <p>Web Developer</p>
+        <p>📧 rohankandale1213@gmail.com</p>
+        <p>📞 8446119056</p>
+
+        <!-- 📸 Instagram -->
+        <a href="https://instagram.com/your_username" target="_blank" class="insta-link">
+            📸 Follow on Instagram
+        </a>
+    </div>
+</section>
+
+</div>
+
+<!-- 💳 PAYMENT MODAL -->
+<div id="paymentBox" class="modal">
+    <div class="modal-content">
+        <h3>💳 Payment</h3>
+        <p>Total: ₹<span id="payAmount"></span></p>
+        <button onclick="placeOrder()">Pay Now</button>
+        <button onclick="closePayment()">Cancel</button>
+    </div>
+</div>
+
+<!-- 🔐 AUTH MODAL (NO CANCEL → force flow) -->
+<div id="authBox" class="modal">
+    <div class="modal-content">
+        <h3>Register / Login</h3>
+
+        <input type="text" id="authUser" placeholder="Username"><br><br>
+        <input type="password" id="authPass" placeholder="Password"><br><br>
+
+        <button onclick="signup()">Register</button>
+        <button onclick="login()">Login</button>
+    </div>
+</div>
+
+<!-- ⏳ LOADER -->
+<div id="loader" class="loader">Processing...</div>
+
+<!-- 🔔 MESSAGE -->
+<p id="msg" style="text-align:center;"></p>
+
+<script src="script.js"></script>
+</body>
+</html>
